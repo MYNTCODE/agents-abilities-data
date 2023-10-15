@@ -1,9 +1,10 @@
 import "./App.css";
+import RoutesForRender from "./pages/Routes";
 
 function App() {
   return (
     <>
-      <h1>test app.jsx</h1>
+      <RoutesForRender />
     </>
   );
 }
