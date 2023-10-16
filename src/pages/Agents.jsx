@@ -27,7 +27,11 @@ function Agent() {
   }, []);
 
   if (loading) {
-    return <div className="Loading">Loading...</div>;
+    return (
+      <div className="text-center">
+        <div className="Loading  opacity-40">Loading...</div>
+      </div>
+    );
   }
   if (error) {
     return <div className="Error">Error: {error} </div>;
@@ -56,10 +60,11 @@ function Agent() {
         </div>
 
         <h1
+          title="Agents"
           className=" font-bold text-7xl my-10 text-rose-500 "
           style={{ textShadow: "2px 4px 8px black" }}
         >
-          Agent
+          AGENTS
         </h1>
         <div className="agent-container lg:px-[5%] flex flex-wrap justify-center items-center ">
           {filteredAgents.map((agent) => (
@@ -74,32 +79,36 @@ function Agent() {
                   <img
                     src={agent.displayIcon}
                     alt={agent.displayName}
+                    title={agent.displayName}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-200 hover:opacity-100">
                     <img
                       src={agent.fullPortrait}
                       alt={agent.displayName}
+                      title={agent.displayName}
                       className="w-full h-full object-cover clip-top scale-[2.8] pt-[27%] mt-[15%]"
                     />
                   </div>
                 </div>
               </Link>
-              <h1
-                className="agent-name mt-8 lg:text-[25px] font-bold text-rose-500"
-                style={{ textShadow: "2px 4px 8px black" }}
-              >
-                {agent.displayName}
-              </h1>
-              <div className="role flex justify-center items-center pt-1 ">
-                <p className="agent-type font-semibold tracking-wider">
-                  Role - {agent.role.displayName}
-                </p>
+              <div className="role flex justify-center items-center pt-1 text-center mt-2 ">
+                <h1
+                  title={agent.displayName}
+                  className="agent-name  lg:text-[25px] font-bold text-rose-500"
+                  style={{ textShadow: "2px 4px 8px black" }}
+                >
+                  {agent.displayName}
+                </h1>
                 <img
                   src={agent.role.displayIcon}
-                  className=" mx-4 w-[20px] h-[20px]"
+                  className=" mx-2 w-[18px] h-[18px] mt-1 opacity-60"
+                  title={agent.role.displayName}
                 />
               </div>
+              {/* <p className="agent-type font-semibold tracking-wider">
+                  Role - {agent.role.displayName}
+                </p> */}
             </div>
           ))}
         </div>
