@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,4 +12,26 @@
 
 .bg-agent {
   background-image: linear-gradient(45deg, #c12c45, #0b0923, #000916);
+}
+
+::selection {
+  background-color: #7a1f2e;
+  color: rgb(255, 255, 255);
+}
+
+.abilities-name {
+  border: 3px solid transparent; /* ตั้งค่า border เป็น 3px แต่ให้โปร่งเพื่อให้ gradient แสดงตัวได้ */
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* เพิ่ม transition เพื่อทำให้การเปลี่ยนแปลงมี smooth effect */
+}
+
+.abilities-name:hover {
+  border-color: transparent; /* ทำให้ border เป็นโปร่งเพื่อให้ gradient แสดงตัว */
+  border-image: linear-gradient(
+    to right,
+    #c12c45,
+    #000916
+  ); /* gradient จากสีส้มไปยังสีชมพู */
+  border-image-slice: 1;
+  transform: scale(1.1);
+  box-shadow: 15px 15px #c12c45; /* ปรับตำแหน่งของ shadow ให้เป็น offset 15px ทั้งแนวแกน x และ y */
 }

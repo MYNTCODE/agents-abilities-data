@@ -47,15 +47,18 @@ function AgentId() {
         {agentById && (
           <div className="agent">
             <div className="lg:px-[22%] pt-[2%]">
-              <h1 className="text-rose-500 text-center text-[50px] font-bold">
+              <h1
+                className="text-rose-500 text-center text-[50px] font-bold"
+                title={agentById.displayName}
+              >
                 {agentById.displayName}
               </h1>
-              <p className="px-20 tracking-wider font-semibold">
+              <p className="px-20 tracking-wider font-semibold mt-4">
                 {agentById.description}
               </p>
             </div>
-            <div className="agent-portrait-abilities  flex justify-center lg:px-[20%]">
-              <div className="agent-portrait h-[700px] w-[800px]">
+            <div className="agent-portrait-abilities  flex justify-center lg:px-[10%]">
+              <div className="agent-portrait mt-10 h-[900px] w-[500px]">
                 <img
                   src={agentById.fullPortraitV2}
                   alt={agentById.displayName}
@@ -66,33 +69,37 @@ function AgentId() {
 
               <div className="abilities mx-[20px] mt-10 ">
                 <div className="role  flex text-center ">
-                  <p className="agent-type font-bold tracking-wider text-[30px]">
+                  <p
+                    className="agent-type font-bold tracking-wider text-[30px]"
+                    title={agentById.role.displayName}
+                  >
                     {agentById.role.displayName}
                   </p>
                   <img
                     src={agentById.role.displayIcon}
                     className=" h-[25px] mt-3 ml-2 "
+                    title={agentById.role.displayName}
                   />
                 </div>
-                <p className=" tracking-wider">{agentById.role.description}</p>
-                <div className="mt-10 mb-16">
+                <p className="tracking-wider">{agentById.role.description}</p>
+                <div className="mb-16 ">
                   {agentById.abilities
                     .filter((ability) => ability.slot !== "passive") // Filter out "passive" abilities
                     .slice(0, 4) // Take the first 4 abilities
                     .map((ability) => (
                       <li
                         key={ability.slot}
-                        className="list-none flex mt-10 ml-10"
+                        className="list-none flex py-4 my-[10%]"
                       >
                         <img
                           title={ability.displayName}
                           src={ability.displayIcon}
                           alt={ability.displayName}
-                          className="h-[80px] w-[80px] opacity-70"
+                          className="h-[80px] w-[80px] opacity-70 my-4"
                         />
-                        <div className="abilities-name p-0 pl-20 bg-transparent transition-transform transform hover:scale-110  duration-500 ease-in-out cursor-default ">
-                          <div className="flex font-bold text-[20px] tracking-wider ">
-                            <p className="">{ability.slot}</p>:
+                        <div className="abilities-name absolute pl-6 py-4 ml-40 w-[38%] transition-transform transform hover:scale-110 duration-500 ease-in-out cursor-default ">
+                          <div className="flex font-bold text-[20px] tracking-wider bg-transparent">
+                            <p className=" bg-transparent">{ability.slot}</p>:
                             <p className="pl-2 ">{ability.displayName}</p>
                           </div>
                           <p className="">{ability.description}</p>
