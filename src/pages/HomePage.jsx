@@ -1,7 +1,9 @@
+import Agent from "./Agents";
+
 function HomePage() {
   return (
     <>
-      <h1>Hompage</h1>
+      <Agent />
     </>
   );
 }
