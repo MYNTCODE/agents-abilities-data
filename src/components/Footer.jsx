@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <>
-      <div className="bg-agent h-[150px] w-full mt-10 absolute  ">
+      <div className=" bg-agent h-[150px] w-full mt-10 absolute  ">
         {" "}
         <a
           href="https://playvalorant.com/en-us/"
