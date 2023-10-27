@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 function AgentId() {
   const [agentById, setAgentById] = useState([]);
@@ -36,14 +37,30 @@ function AgentId() {
   }, []);
 
   if (loading) {
-    return <div className="Loading">Loading...</div>;
+    return (
+      <div className="text-center">
+        <div className="Loading  opacity-40">Loading...</div>
+      </div>
+    );
   }
   if (error) {
-    return <div className="Error">Error: {error} </div>;
+    return (
+      <div className="text-center">
+        <div className="Loading  opacity-40">Error : ... {error}</div>
+      </div>
+    );
   }
   return (
     <>
       <div className="agent-abilities">
+        <Link to={`/`}>
+          <div className="absolute ">
+            <img
+              className="w-[20%] m-10"
+              src="https://cdn.discordapp.com/attachments/1144637676016898219/1167534638571458610/home.png?ex=654e7a5d&is=653c055d&hm=22f5125b5dd05a59114a504399630c1848cf6618dab66f5153d0184e1c54d745&"
+            ></img>
+          </div>
+        </Link>
         {agentById && (
           <div className="agent">
             <div className="lg:px-[22%] pt-[2%]">
@@ -53,6 +70,7 @@ function AgentId() {
               >
                 {agentById.displayName}
               </h1>
+
               <p className="px-20 tracking-wider font-semibold mt-4">
                 {agentById.description}
               </p>
