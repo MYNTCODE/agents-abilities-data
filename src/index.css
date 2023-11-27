@@ -26,14 +26,16 @@
   transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* เพิ่ม transition เพื่อทำให้การเปลี่ยนแปลงมี smooth effect */
 }
 
-.abilities-name:hover {
-  border-color: transparent; /* ทำให้ border เป็นโปร่งเพื่อให้ gradient แสดงตัว */
-  border-image: linear-gradient(
-    to right,
-    #c12c45,
-    #000916
-  ); /* gradient จากสีส้มไปยังสีชมพู */
-  border-image-slice: 1;
-  transform: scale(1.1);
-  box-shadow: 15px 15px #c12c45; /* ปรับตำแหน่งของ shadow ให้เป็น offset 15px ทั้งแนวแกน x และ y */
+@media (min-width: 992px) {
+  .abilities-name:hover {
+    border-color: transparent; /* ทำให้ border เป็นโปร่งเพื่อให้ gradient แสดงตัว */
+    border-image: linear-gradient(
+      to right,
+      #c12c45,
+      #000916
+    ); /* gradient จากสีส้มไปยังสีชมพู */
+    border-image-slice: 1;
+    transform: scale(1.1);
+    box-shadow: 15px 15px #c12c45; /* ปรับตำแหน่งของ shadow ให้เป็น offset 15px ทั้งแนวแกน x และ y */
+  }
 }

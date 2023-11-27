@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import "../components/Loading.css";
+import "../components/AgentAbilities.css";
 
 function AgentId() {
   const [agentById, setAgentById] = useState([]);
@@ -23,8 +23,8 @@ function AgentId() {
       }
       setAgentById(response.data.data);
 
-      console.log("Data", response.data.data);
-      console.log("Agent Id", response.data.data[0].displayName);
+      // console.log("Data", response.data.data);
+      // console.log("Agent Id", response.data.data[0].displayName);
     } catch (e) {
       console.error("Error fetch", error.message);
       setError(error.message);
@@ -103,22 +103,22 @@ function AgentId() {
                 </div>
                 <p className="tracking-wider">{agentById.role.description}</p>
                 <div className="mb-32  ">
-                  <div className="mt-[-100px] md:mt-[0]">
+                  <div className="mt-[-100px] md:mt-[0] ">
                     {agentById.abilities
                       .filter((ability) => ability.slot !== "passive") // Filter out "passive" abilities
                       .slice(0, 4) // Take the first 4 abilities
                       .map((ability) => (
                         <li
                           key={ability.slot}
-                          className="list-none flex py-4 mt-[150px] md:py-0 lg:mt-[100px]"
+                          className=" list-none flex py-4 mt-[150px] md:py-0 lg:mt-[100px]"
                         >
                           <img
                             title={ability.displayName}
                             src={ability.displayIcon}
                             alt={ability.displayName}
-                            className=" h-[15%] w-[15%] md:px-10 lg:px-0 lg:h-[80px] lg:w-[80px] opacity-70 lg:my-4"
+                            className=" slideRight h-[15%] w-[15%] md:px-10 lg:px-0 lg:h-[80px] lg:w-[80px]  lg:my-4"
                           />
-                          <div className="abilities-name pt-0 md:pt-2 absolute ml-10 pl-6 md:ml-40 lg:pl-6 py-4 lg:ml-40 md:w-[70%] lg:w-[38%] transition-transform transform lg:hover:scale-110 duration-500 ease-in-out cursor-default ">
+                          <div className="abilities-name slideRight pt-0 md:pt-2 absolute ml-10 pl-6 md:ml-40 lg:pl-6 py-4 lg:ml-40 md:w-[70%] lg:w-[38%] transition-transform transform lg:hover:scale-110 duration-500 ease-in-out cursor-default ">
                             <div className="flex font-bold text-[20px] tracking-wider bg-transparent">
                               <p className=" bg-transparent">{ability.slot}</p>:
                               <p className="pl-2 ">{ability.displayName}</p>
