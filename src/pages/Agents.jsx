@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import "../components/Loading.css";
+import "../components/AgentAbilities.css";
 
 function Agent() {
   const [agents, setAgents] = useState([]);
@@ -19,9 +19,9 @@ function Agent() {
           throw new Error(response.data.message);
         }
         setAgents(response.data.data);
-        console.log("Data", response.data.data);
+        // console.log("Data", response.data.data);
       } catch (e) {
-        console.error("Error fetch", error.message);
+        // console.error("Error fetch", error.message);
         setError(error.message);
       } finally {
         setLoading(false);
@@ -51,7 +51,7 @@ function Agent() {
   );
   //   console.log(filteredAgents);
   //   console.log("Example agent:", agents[0]);
-  console.log(filteredAgents.map((agent) => agent.fullPortrait));
+  // console.log(filteredAgents.map((agent) => agent.fullPortrait));
 
   const filteredResults = filteredAgents.filter((agent) =>
     agent.displayName.toLowerCase().startsWith(keyword.toLowerCase())
@@ -60,22 +60,24 @@ function Agent() {
   return (
     <>
       <div className="agent-section flex flex-col justify-center items-center ">
-        <h1
-          title="Agents"
-          className=" font-bold text-7xl mt-10 text-rose-500 "
-          style={{ textShadow: "2px 4px 8px black" }}
-        >
-          AGENTS
-        </h1>
-        <div className="agent-filter">
-          <input
-            type="text"
-            value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
-            placeholder="search for agents"
-            className="m-[20p] bg-zinc-700 w-[300px] mt-4 mb-4 px-[10px] py-[5px] rounded-lg"
-          />
-        </div>{" "}
+        <div className="slideDown">
+          <h1
+            title="Agents"
+            className=" font-bold text-7xl mt-10 text-rose-500 "
+            style={{ textShadow: "2px 4px 8px black" }}
+          >
+            AGENTS
+          </h1>
+          <div className="agent-filter">
+            <input
+              type="text"
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
+              placeholder="search for agents"
+              className="m-[20p] bg-zinc-700 w-[300px] mt-4 mb-4 px-[10px] py-[5px] rounded-lg"
+            />
+          </div>
+        </div>
         {filteredResults.length === 0 ? (
           <div className=" h-[60vh]">
             <p className="pt-[50%]">No results found.</p>
@@ -100,14 +102,14 @@ function Agent() {
                         src={agent.displayIcon}
                         alt={agent.displayName}
                         title={agent.displayName}
-                        className="w-full h-full object-cover"
+                        className=" w-full h-full object-cover"
                       />
                       <div className="absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-200 hover:opacity-100">
                         <img
                           src={agent.fullPortrait}
                           alt={agent.displayName}
                           title={agent.displayName}
-                          className="w-full h-full object-cover clip-top scale-[2.8] pt-[27%] mt-[15%]"
+                          className=" w-full h-full object-cover clip-top scale-[2.8] pt-[27%] mt-[15%]"
                         />
                       </div>
                     </div>

@@ -1,0 +1,127 @@
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(5%);
+    opacity: 0.1;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 992px) {
+  .box {
+    animation: slide-up 500ms;
+    animation-delay: 0ms;
+  }
+
+  .slideDown {
+    animation-name: slideDown;
+    -webkit-animation-name: slideDown;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    visibility: visible !important;
+  }
+
+  @keyframes slideDown {
+    0% {
+      transform: translateX(30%);
+    }
+    50% {
+      transform: translateX(-8%);
+    }
+    65% {
+      transform: translateX(4%);
+    }
+    80% {
+      transform: translateX(-4%);
+    }
+    95% {
+      transform: translateX(2%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  @-webkit-keyframes slideDown {
+    0% {
+      -webkit-transform: translateY(100%);
+    }
+    50% {
+      -webkit-transform: translateY(-8%);
+    }
+    65% {
+      -webkit-transform: translateY(4%);
+    }
+    80% {
+      -webkit-transform: translateY(-4%);
+    }
+    95% {
+      -webkit-transform: translateY(2%);
+    }
+    100% {
+      -webkit-transform: translateY(0%);
+    }
+  }
+
+  /* slide of abilities section */
+
+  .slideRight {
+    animation-name: slideRight;
+    -webkit-animation-name: slideRight;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    visibility: visible !important;
+  }
+
+  @keyframes slideRight {
+    0% {
+      transform: translateX(30%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  @-webkit-keyframes slideRight {
+    0% {
+      -webkit-transform: translateY(100%);
+    }
+
+    100% {
+      -webkit-transform: translateY(0%);
+    }
+  }
+}
