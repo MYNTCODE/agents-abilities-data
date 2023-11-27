@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import "../components/Loading.css";
+
 function Agent() {
   const [agents, setAgents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -30,8 +32,9 @@ function Agent() {
 
   if (loading) {
     return (
-      <div className="text-center">
-        <div className="Loading  opacity-40">Loading...</div>
+      <div className="text-center mt-[200px]">
+        {/* <div className="Loading  opacity-40">Loading...</div> */}
+        <div className="lds-dual-ring"></div>
       </div>
     );
   }
