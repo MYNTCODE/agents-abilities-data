@@ -1,9 +1,18 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
-import "../components/AgentAbilities.css";
+import '../components/AgentAbilities.css';
+
+import {
+  useEffect,
+  useState,
+} from 'react';
+
+import axios from 'axios';
+import {
+  Link,
+  useParams,
+} from 'react-router-dom';
+
+import backIcon from '../assets/img/left-arrow-1.png';
+import Footer from '../components/Footer';
 
 function AgentId() {
   const [agentById, setAgentById] = useState([]);
@@ -58,8 +67,8 @@ function AgentId() {
         <Link to={`/`}>
           <div className="absolute ">
             <img
-              className="w-[20%] m-4 lg:m-10"
-              src="https://cdn.discordapp.com/attachments/1144637676016898219/1167534638571458610/home.png?ex=654e7a5d&is=653c055d&hm=22f5125b5dd05a59114a504399630c1848cf6618dab66f5153d0184e1c54d745&"
+              className="w-[25%] m-4 lg:m-10"
+              src={backIcon}
             ></img>
           </div>
         </Link>

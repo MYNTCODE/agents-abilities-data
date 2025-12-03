@@ -1,10 +1,10 @@
-import img from '../assets/img/download.png';
+import downloadIcon from '../assets/img/download.png';
 
 function Footer() {
   return (
     <>
       <div className=" bg-agent h-[200px] lg:pt-4 w-full mt-10 absolute  ">
-        {" "}
+        {' '}
         <a
           href="https://playvalorant.com/en-us/"
           target="_blank"
@@ -13,7 +13,7 @@ function Footer() {
           <div className="bg-transparent hidden sm:flex md:flex lg:flex items-center justify-center mt-5">
             <img
               className=" h-[30px] w-[30px]  bg-transparent  opacity-80 mx-4 "
-              src={img}
+              src={downloadIcon}
             />
             <p
               title="Valorant Download"
